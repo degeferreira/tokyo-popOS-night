@@ -12,4 +12,4 @@ As versões, URLs e hashes dos downloads estão em `assets/sources.json`. A lice
 
 A logo tipográfica em `docs/images/logo.png` foi criada com o gerador de imagens integrado (ImageGen), com princípios de redução visual, espaço vazio e equilíbrio. Não utiliza símbolos culturais japoneses nem reproduz a logo oficial do Pop!_OS. O prompt final está em `docs/logo-prompt.txt`.
 
-`docs/images/desktop.png` é uma captura real do desktop com uma janela temporária de demonstração no Kitty. A imagem não foi redesenhada por IA. O fundo de tela que aparece nas margens não integra o tema distribuído.
+`docs/images/desktop.png` é uma captura real do desktop de um único monitor em 1920×1080, com Arquivos e Kitty em mosaico e arquivos temporários demonstrativos. A imagem preserva os pixels originais: foi feito apenas o recorte do monitor, sem redimensionamento ou reconstrução por IA. O fundo de tela que aparece nas margens não integra o tema distribuído.
