@@ -1,8 +1,18 @@
 # Tokyo Pop!_OS Night
 
+<p align="center">
+  <img src="docs/images/logo.png" alt="TokyoNight — Pop!_OS" width="640" />
+</p>
+
 Preset pessoal para **Pop!_OS 24.04 / COSMIC**, inspirado no Tokyo Night: painel superior fino e flutuante, dock inferior visível, mosaico com gaps de 10 px, contorno azul na janela ativa, fonte Iosevka Nerd Font e ícones TokyoNight-SE.
 
 O pacote aplica as configurações do usuário com backup automático. Não exige `sudo`, Rust, Waybar, PPAs ou outro compositor. Fontes e ícones são obtidos dos projetos originais, com versões fixadas e verificação SHA-256; nenhum instalador remoto é executado.
+
+## Aparência
+
+![Desktop COSMIC com o tema Tokyo Night, painel flutuante e dock inferior](docs/images/desktop.png)
+
+Captura real do COSMIC em um setup de dois monitores, com uma demonstração de cores e tipografia no Kitty à direita. O painel superior e o dock inferior usam os componentes nativos.
 
 ## Aplicar após reinstalar
 
@@ -45,7 +55,7 @@ O tema é recarregado pelos mecanismos nativos do COSMIC. Aplicativos já aberto
 
 A lista de painéis mantém entradas adicionais e garante a presença de `Panel` e `Dock`. Ambos são configurados para **todas as telas**, sem nomes de monitores ou identificadores EDID. A disposição dos indicadores existentes é preservada; os indicadores padrão deste preset são usados somente onde a configuração ainda não existe.
 
-**Não são exportados:** papel de parede, atalhos, aplicativos favoritos, teclado, shell, sessões, contas, monitores, histórico, capturas ou dados pessoais. O tema não altera as cores internas de páginas web nem aplicativos que imponham uma aparência própria. Indicadores com cores individuais e bordas em gradiente da Waybar/Hyprland não são reproduzidos por este preset nativo.
+**Não são exportados:** papel de parede, atalhos, aplicativos favoritos, teclado, shell, sessões, contas, monitores, histórico, capturas pessoais ou dados pessoais. O tema não altera as cores internas de páginas web nem aplicativos que imponham uma aparência própria. Indicadores com cores individuais e bordas em gradiente da Waybar/Hyprland não são reproduzidos por este preset nativo.
 
 ## Usar somente a aparência
 

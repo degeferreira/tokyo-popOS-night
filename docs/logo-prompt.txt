@@ -1,0 +1,7 @@
+Use case: logo-brand. Create a finished minimalist typographic logo for the community desktop theme TokyoNight + Pop!_OS. This is a wordmark, NOT an illustration.
+Wide horizontal composition on a perfectly solid flat dark navy background #1a1b26.
+Exact text:
+"TokyoNight"
+"Pop!_OS"
+TokyoNight is the main line, in a clean, medium-weight geometric monospaced typeface, pale periwinkle #7aa2f7. Pop!_OS is a much smaller, calmly spaced secondary line below it, in soft lilac #bb9af7. Text is sharp, solid, fully opaque, clear and correctly spelled. Align the two lines on their left edge, place the compact wordmark in the center of the canvas with generous empty space.
+Japanese minimalist design principles ONLY: restraint, precise proportions, ma/negative space, quiet balance. No Japanese cultural symbols or references. No icon, no crescent, no enso, no sun, no torii, no kanji, no stars, no orbit, no scene. No borders or decorative strokes. Absolutely NO gradients, glow, haze, texture, shadows, distressing or 3D. Flat clean wordmark with very few visual elements. The entire design should feel like a precise contemporary design studio identity.
