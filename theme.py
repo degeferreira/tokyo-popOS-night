@@ -190,7 +190,42 @@ def panel_entries(text):
     return json.dumps(entries) + '\n'
 
 
-def plan(paths, no_assets=False):
+def kitty_available():
+    return shutil.which('kitty') is not None
+
+
+def terminal_setup(args):
+    if kitty_available():
+        return False
+    print('Aviso: Kitty não encontrado. O tema do COSMIC será aplicado normalmente; '
+          'cores, abas e transparência do terminal são exclusivas do Kitty. '
+          'Outros terminais mantêm sua configuração.')
+    if args.dry_run or args.offline or not sys.stdin.isatty() or not sys.stdout.isatty():
+        print('Para usar o preset do terminal, instale Kitty e reaplique o tema: sudo apt install kitty')
+        return False
+    if input('Instalar Kitty pelo APT agora? / Install Kitty using APT? [s/y/N] ').strip().lower() not in ('s', 'y', 'sim', 'yes'):
+        return False
+    if not shutil.which('apt'):
+        print('Aviso: APT indisponível. Instale Kitty manualmente; o tema continuará sem ele.')
+        return False
+    command = ['apt', 'install', 'kitty']
+    if os.geteuid() != 0:
+        if not shutil.which('sudo'):
+            print('Aviso: sudo indisponível. Instale Kitty manualmente.')
+            return False
+        command.insert(0, 'sudo')
+    try:
+        result = subprocess.run(command, check=False)
+    except OSError as error:
+        print(f'Aviso: não foi possível instalar Kitty: {error}. Continuando com o tema.')
+        return False
+    if result.returncode or not kitty_available():
+        print('Aviso: Kitty não foi instalado. Continuando com o tema do COSMIC.')
+        return False
+    return input('Usar Kitty como terminal padrão do COSMIC (Super+T)? / Set as COSMIC default? [s/y/N] ').strip().lower() in ('s', 'y', 'sim', 'yes')
+
+
+def plan(paths, no_assets=False, default_terminal=False):
     planned = {}
     for source in sorted((ROOT / 'preset/cosmic').rglob('*')):
         if not source.is_file():
@@ -206,6 +241,25 @@ def plan(paths, no_assets=False):
         planned[target] = source.read_bytes()
     entry = paths['config'] / 'cosmic/com.system76.CosmicPanel/v1/entries'
     planned[entry] = panel_entries(entry.read_text() if entry.exists() else '[]').encode()
+    if default_terminal:
+        action = paths['config'] / 'cosmic/com.system76.CosmicSettings.Shortcuts/v1/system_actions'
+        if action.is_symlink():
+            print('Aviso: terminal padrão preservado: configuração vinculada.')
+        else:
+            text = action.read_text() if action.exists() else '{}'
+            pattern = r'(?m)^(\s*Terminal:\s*)"(?:[^"\\]|\\.)*"'
+            if len(re.findall(pattern, text)) == 1:
+                planned[action] = re.sub(pattern, lambda m: m[1] + '"kitty"', text).encode()
+            elif 'Terminal:' not in text and text.strip().startswith('{') and text.strip().endswith('}'):
+                end = text.rfind('}')
+                prefix = text[:end].rstrip()
+                if not prefix.endswith(('{', ',')):
+                    prefix += ','
+                planned[action] = (prefix + '\n    Terminal: "kitty",\n' + text[end:]).encode()
+            else:
+                print('Aviso: formato de terminal padrão desconhecido; preservado.')
+    if not kitty_available():
+        return planned
     kitty = paths['config'] / 'kitty'
     planned[kitty / 'cosmic-tokyo-night-colors.conf'] = (ROOT / 'preset/kitty/colors.conf').read_bytes()
     style = (ROOT / 'preset/kitty/style.conf').read_text()
@@ -253,7 +307,8 @@ def save_manifest(path, data):
 def apply(args):
     compatibility()
     paths = locations()
-    planned = plan(paths, args.no_assets)
+    default_terminal = terminal_setup(args)
+    planned = plan(paths, args.no_assets, default_terminal)
     prefs = preferences(not (args.no_gsettings or args.no_assets))
     if args.dry_run:
         print(f'Compatível. {len(planned)} arquivos previstos; {len(prefs)} preferências GTK. Nenhum arquivo alterado.')

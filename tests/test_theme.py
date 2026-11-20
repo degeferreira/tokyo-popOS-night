@@ -25,6 +25,8 @@ class InstallerTests(unittest.TestCase):
             (self.system / ns / f'v{version}').mkdir(parents=True)
         self.system_patch = patch.object(theme, 'SYSTEM_DATA', self.system); self.system_patch.start()
         self.sleep = patch.object(theme.time, 'sleep'); self.sleep.start()
+        self.kitty = patch.object(theme, 'kitty_available', return_value=True); self.kitty.start()
+        self.addCleanup(self.kitty.stop)
         self.config = self.root / 'config'
 
     def tearDown(self):
@@ -37,6 +39,42 @@ class InstallerTests(unittest.TestCase):
     def write(self, rel, text):
         p = self.config / rel; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(text)
         return p
+
+    def test_missing_kitty_applies_cosmic_without_terminal_files(self):
+        with patch.object(theme, 'kitty_available', return_value=False), patch.object(theme.sys.stdin, 'isatty', return_value=False):
+            output = io.StringIO()
+            with contextlib.redirect_stdout(output):
+                self.assertEqual(theme.main(['apply', '--no-assets', '--no-gsettings']), 0)
+            self.assertIn('Kitty não encontrado', output.getvalue())
+            self.assertFalse((self.config / 'kitty').exists())
+            self.assertTrue((self.config / 'cosmic/com.system76.CosmicTheme.Dark/v2/background').exists())
+            self.assertEqual(self.call('restore'), 0)
+
+    def test_optional_kitty_declined_or_failed_is_nonfatal(self):
+        args = theme.argparse.Namespace(dry_run=False, offline=False)
+        with patch.object(theme, 'kitty_available', return_value=False), patch.object(theme.sys.stdin, 'isatty', return_value=True), patch.object(theme.sys.stdout, 'isatty', return_value=True), patch('builtins.input', return_value='n'), patch.object(theme.subprocess, 'run') as command:
+            self.assertFalse(theme.terminal_setup(args))
+            command.assert_not_called()
+        with patch.object(theme, 'kitty_available', return_value=False), patch.object(theme.sys.stdin, 'isatty', return_value=True), patch.object(theme.sys.stdout, 'isatty', return_value=True), patch('builtins.input', return_value='y'), patch.object(theme.shutil, 'which', return_value='/usr/bin/tool'), patch.object(theme.os, 'geteuid', return_value=1000), patch.object(theme.subprocess, 'run', return_value=theme.subprocess.CompletedProcess([], 1)) as command:
+            self.assertFalse(theme.terminal_setup(args))
+            self.assertEqual(command.call_args.args[0], ['sudo', 'apt', 'install', 'kitty'])
+
+    def test_missing_kitty_dry_run_never_prompts_or_installs(self):
+        args = theme.argparse.Namespace(dry_run=True, offline=False)
+        with patch.object(theme, 'kitty_available', return_value=False), patch('builtins.input') as prompt, patch.object(theme.subprocess, 'run') as command:
+            self.assertFalse(theme.terminal_setup(args))
+            prompt.assert_not_called()
+            command.assert_not_called()
+
+    def test_default_terminal_preserves_other_actions_and_restores(self):
+        action = self.write('cosmic/com.system76.CosmicSettings.Shortcuts/v1/system_actions', '{\n    Terminal: "cosmic-term",\n    Browser: "firefox",\n}')
+        original = action.read_text()
+        with patch.object(theme, 'terminal_setup', return_value=True):
+            self.assertEqual(self.call('apply', '--no-assets', '--no-gsettings'), 0)
+        self.assertIn('Terminal: "kitty"', action.read_text())
+        self.assertIn('Browser: "firefox"', action.read_text())
+        self.assertEqual(self.call('restore'), 0)
+        self.assertEqual(action.read_text(), original)
 
     def test_fresh_apply_reapply_and_restore(self):
         kitty = self.write('kitty/kitty.conf', '# own settings\nfont_size 14\n')

@@ -32,11 +32,11 @@ O tema é recarregado pelos mecanismos nativos do COSMIC. Aplicativos já aberto
 | Aparência | Tokyo Night escuro fixo; fundo `#1a1b26`, superfícies azul-marinho e texto azul-lilás |
 | Janela ativa | Borda azul `#7aa2f7`, 2 px; cantos suavemente arredondados |
 | Tiling | Ativado por área de trabalho; espaçamento interno 10 px |
-| Painel superior | XS, cerca de 32 px a 100% de escala; margem 10 px, raio 12 px, opacidade 96% |
+| Painel superior | XS, cerca de 32 px a 100% de escala; margem 10 px, raio 12 px, opacidade 90% |
 | Dock inferior | Sempre visível, centralizado e flutuante; margem 10 px, raio 14 px, tamanho S |
 | Fontes | Iosevka Nerd Font na interface e terminal; Kitty a 11 pt |
 | Ícones | TokyoNight-SE com fallback para ícones específicos do COSMIC |
-| Kitty | Cores Tokyo Night, fundo opaco e margem interna de 10 px |
+| Kitty | Cores Tokyo Night, opacidade 92% e margem interna de 10 px |
 | GTK/Qt | Exportação das cores pelo próprio daemon COSMIC |
 
 A lista de painéis mantém entradas adicionais e garante a presença de `Panel` e `Dock`. Ambos são configurados para **todas as telas**, sem nomes de monitores ou identificadores EDID. A disposição dos indicadores existentes é preservada; os indicadores padrão deste preset são usados somente onde a configuração ainda não existe.
@@ -117,3 +117,11 @@ O arquivo `tokyo-night.ron` contém a definição-base ThemeBuilder v2. A import
 A paleta usa texto principal `#c0caf5`, secundário `#a9b1d6`, divisórias `#3b4261`, hover `#292e42` e seleção `#283457`. Botões azuis usam texto `#1a1b26`. As transparências originais dos estados desativados e dos controles transparentes são mantidas; cores semânticas de erro, aviso e sucesso continuam distintas.
 
 Alguns controles do Arquivos usam diretamente o destaque azul para a seleção, em vez do papel geral `selected`. Nesses casos, o azul e o texto escuro seguem a implementação nativa; o preset não injeta CSS nem altera o aplicativo.
+
+## Transparência e terminais
+
+O preset ativa `frosted_windows`, `frosted_maximized_apps`, `frosted_system_interface`, `frosted_panel` e `frosted_applets` no Theme v2, com intensidade nativa `ExtremelyLow`. Superfícies transparentes ficam em aproximadamente 90% de opacidade; painel/dock em 90% e Kitty em 92%. O Arquivos e outros aplicativos libcosmic que respeitam esses papéis podem usar o efeito; aplicativos com superfícies próprias podem permanecer opacos. O desfoque depende do compositor e do aplicativo, sem efeitos externos. GTK/Qt não recebem transparência forçada.
+
+A configuração de terminal deste pacote é exclusiva do Kitty. O tema do COSMIC, fontes e ícones funcionam independentemente do terminal escolhido. Sem Kitty, a instalação continua e não grava arquivos dele. Em terminal interativo com acesso online, oferece instalar `kitty` pelo APT (pode solicitar senha via sudo e confirmação do próprio APT), e depois pergunta separadamente se deve defini-lo como terminal padrão do COSMIC/Super+T. As respostas padrão são Não. Sem interação, em `--offline` ou em `--dry-run`, apenas avisa e sugere `sudo apt install kitty`; depois de instalar, reaplique o tema.
+
+A seleção de terminal padrão é salva no backup e pode ser restaurada. A restauração não desinstala pacotes APT. Se a instalação do Kitty for recusada ou falhar, o tema continua normalmente com o terminal atual. Não há configuração automática para Alacritty, WezTerm, GNOME Terminal ou outros terminais.
