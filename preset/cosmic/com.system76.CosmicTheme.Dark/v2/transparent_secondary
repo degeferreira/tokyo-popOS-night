@@ -1,7 +1,7 @@
 (
-    base: "#24283BE6",
+    base: "#24283BEB",
     component: (
-        base: "#24283BE6",
+        base: "#24283BEB",
         hover: "#292E42FF",
         pressed: "#283457FF",
         selected: "#283457FF",

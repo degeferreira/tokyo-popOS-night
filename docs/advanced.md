@@ -32,7 +32,7 @@ O tema é recarregado pelos mecanismos nativos do COSMIC. Aplicativos já aberto
 | Aparência | Tokyo Night escuro fixo; fundo `#1a1b26`, superfícies azul-marinho e texto azul-lilás |
 | Janela ativa | Borda azul `#7aa2f7`, 2 px; cantos suavemente arredondados |
 | Tiling | Ativado por área de trabalho; espaçamento interno 10 px |
-| Painel superior | XS, cerca de 32 px a 100% de escala; margem 10 px, raio 12 px, opacidade 90% |
+| Painel superior | XS, cerca de 32 px a 100% de escala; margem 10 px, raio 12 px, opacidade 92% |
 | Dock inferior | Sempre visível, centralizado e flutuante; margem 10 px, raio 14 px, tamanho S |
 | Fontes | Iosevka Nerd Font na interface e terminal; Kitty a 11 pt |
 | Ícones | TokyoNight-SE com fallback para ícones específicos do COSMIC |
@@ -120,7 +120,7 @@ Alguns controles do Arquivos usam diretamente o destaque azul para a seleção, 
 
 ## Transparência e terminais
 
-O preset ativa `frosted_windows`, `frosted_maximized_apps`, `frosted_system_interface`, `frosted_panel` e `frosted_applets` no Theme v2, com intensidade nativa `ExtremelyLow`. Superfícies transparentes ficam em aproximadamente 90% de opacidade; painel/dock em 90% e Kitty em 92%. O Arquivos e outros aplicativos libcosmic que respeitam esses papéis podem usar o efeito; aplicativos com superfícies próprias podem permanecer opacos. O desfoque depende do compositor e do aplicativo, sem efeitos externos. GTK/Qt não recebem transparência forçada.
+O preset ativa `frosted_windows`, `frosted_maximized_apps`, `frosted_system_interface`, `frosted_panel` e `frosted_applets` no Theme v2, com intensidade nativa `ExtremelyLow`. Superfícies transparentes ficam em aproximadamente 92% de opacidade; painel/dock em 92% e Kitty em 92%. O Arquivos e outros aplicativos libcosmic que respeitam esses papéis podem usar o efeito; aplicativos com superfícies próprias podem permanecer opacos. O desfoque depende do compositor e do aplicativo, sem efeitos externos. GTK/Qt não recebem transparência forçada.
 
 A configuração de terminal deste pacote é exclusiva do Kitty. O tema do COSMIC, fontes e ícones funcionam independentemente do terminal escolhido. Sem Kitty, a instalação continua e não grava arquivos dele. Em terminal interativo com acesso online, oferece instalar `kitty` pelo APT (pode solicitar senha via sudo e confirmação do próprio APT), e depois pergunta separadamente se deve defini-lo como terminal padrão do COSMIC/Super+T. As respostas padrão são Não. Sem interação, em `--offline` ou em `--dry-run`, apenas avisa e sugere `sudo apt install kitty`; depois de instalar, reaplique o tema.
 
