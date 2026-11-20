@@ -1,0 +1,39 @@
+{
+  "font_version": "3.5.1",
+  "fonts": [
+    {
+      "file": "IosevkaNerdFont-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/Iosevka/IosevkaNerdFont-Regular.ttf",
+      "sha256": "5e3f3b0a70fcdc5f1ace66ecad69b9913dfd8822fee221dc5e552c7dbc8c17df",
+      "size": 14447488
+    },
+    {
+      "file": "IosevkaNerdFont-Bold.ttf",
+      "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/Iosevka/IosevkaNerdFont-Bold.ttf",
+      "sha256": "29c6bd119feda2d40e37f5ed98fcd7e6c87d2afa2edf950ed61c1292b23bd434",
+      "size": 14499172
+    },
+    {
+      "file": "IosevkaNerdFont-Italic.ttf",
+      "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/Iosevka/IosevkaNerdFont-Italic.ttf",
+      "sha256": "9b067bda7f4875da9807938b4db675265b91491d240776beb498e7e6e24c5d6c",
+      "size": 15035104
+    },
+    {
+      "file": "IosevkaNerdFont-BoldItalic.ttf",
+      "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/Iosevka/IosevkaNerdFont-BoldItalic.ttf",
+      "sha256": "5e9df2a76edde7c93b8612f953cde3fdf6931686253c702b28d4d7a6a082e31b",
+      "size": 15100108
+    },
+    {
+      "file": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/Iosevka/LICENSE.md",
+      "sha256": "7484961b97b41985d54c21700e53f7142a7007d72401acbd32c0b9c6a5a0b558"
+    }
+  ],
+  "icons": {
+    "file": "TokyoNight-SE.tar.bz2",
+    "url": "https://github.com/ljmill/tokyo-night-icons/releases/download/v0.2.0/TokyoNight-SE.tar.bz2",
+    "sha256": "b3a6aa76cc0c8fc564edd9530fa81902adce94cd4fac3a1d8ef840aac61196aa"
+  }
+}
