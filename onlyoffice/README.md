@@ -20,7 +20,7 @@ Salve seus documentos e feche normalmente o ONLYOFFICE antes de instalar. Na rai
 python3 onlyoffice/install.py install
 ```
 
-Abra novamente o ONLYOFFICE. O tema **Tokyo Night Claro / Tokyo Night Day** estará selecionado. O instalador detecta o perfil Flatpak primeiro; para escolher explicitamente:
+Abra novamente o ONLYOFFICE e vá a **Configurações → Geral → Tema da interface**. Selecione primeiro **Claro** e depois **Tokyo Night Claro / Tokyo Night Day**. Essa seleção pela interface é necessária para aplicar as cores na camada do editor; gravar a preferência nativa e copiar o JSON não bastam em algumas versões, incluindo a 9.4 testada. O instalador detecta o perfil Flatpak primeiro; para escolher explicitamente:
 
 ```sh
 python3 onlyoffice/install.py install --target flatpak
@@ -64,3 +64,5 @@ Para pacote nativo, use o identificador `.desktop` instalado pela sua distribui�
 Formato baseado na [documentação oficial de temas](https://api.onlyoffice.com/docs/desktop-editors/usage-api/customizing-themes/) e no carregador nativo [CThemes](https://github.com/ONLYOFFICE/desktop-apps/blob/master/win-linux/src/cthemes.cpp). A [importação local](https://helpcenter.onlyoffice.com/desktop/getting-started) é oferecida pelo próprio aplicativo. Adaptação das cores de [Tokyo Night Light original](https://github.com/tokyo-night/tokyo-night-vscode-theme/blob/master/themes/tokyo-night-light-color-theme.json) e [Tokyo Night Day](https://github.com/folke/tokyonight.nvim), com a faixa superior do Night/Storm. Não é uma variante oficial nem uma cópia exata; não redistribui o código desses projetos. Mantém a licença MIT do repositório; ONLYOFFICE conserva seus próprios termos e marcas.
 
 O tema cobre a interface nativa e os editores que respeitam os papéis oficiais de cores. Plugins, diálogos do sistema e futuras versões podem usar cores próprias. Não altera páginas impressas/exportadas, nem oferece transparência para documentos.
+
+A seleção nativa `UITheme` usa o caminho absoluto do JSON instalado, como faz a importação nativa. O nome do arquivo sozinho pode deixar o editor no tema padrão. Além disso, o editor web mantém seu próprio cache de cores: por isso a ativação pela interface é um passo explícito deste guia. Não apague o cache para tentar aplicar o tema. Se a opção não aparecer, use **Adicionar tema local** e importe o JSON desta pasta do repositório.

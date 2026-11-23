@@ -20,7 +20,7 @@ Save your work and close ONLYOFFICE normally. From the repository root, without 
 python3 onlyoffice/install.py install
 ```
 
-Reopen ONLYOFFICE. **Tokyo Night Day** will be selected. Flatpak profiles are detected first. Select a target explicitly if needed:
+Reopen ONLYOFFICE and go to **Settings → General → Interface theme**. Select **Light**, then **Tokyo Night Day**. This UI step applies the editor color layer; copying the JSON and writing the native preference are insufficient in some versions, including the tested 9.4 release. Flatpak profiles are detected first. Select a target explicitly if needed:
 
 ```sh
 python3 onlyoffice/install.py install --target flatpak
@@ -63,3 +63,5 @@ Native packages require their installed `.desktop` identifier. This step is inde
 Uses the [official theme format](https://api.onlyoffice.com/docs/desktop-editors/usage-api/customizing-themes/), [local theme import](https://helpcenter.onlyoffice.com/desktop/getting-started), and native [CThemes loader](https://github.com/ONLYOFFICE/desktop-apps/blob/master/win-linux/src/cthemes.cpp). Adapted from [original Tokyo Night Light](https://github.com/tokyo-night/tokyo-night-vscode-theme/blob/master/themes/tokyo-night-light-color-theme.json) and [Tokyo Night Day](https://github.com/folke/tokyonight.nvim), with a Night/Storm top strip. This is an adaptation, not an official variant or exact copy; no upstream source code is bundled. The repository's MIT license applies to this add-on; ONLYOFFICE retains its own license and trademarks.
 
 Plugins, OS dialogs and future versions may use their own colors. Printed/exported document colors are not changed. Document transparency is not provided.
+
+The native `UITheme` selection stores the installed JSON’s absolute path, matching native import. A filename alone may leave the editor on its default theme. The web editor also caches its colors, so activating the theme through the UI is an explicit installation step. Do not delete the cache to apply the theme. If the option is missing, choose **Add local theme** and import the JSON from this repository folder.

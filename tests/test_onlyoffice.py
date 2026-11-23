@@ -29,7 +29,7 @@ class OnlyofficeTests(unittest.TestCase):
 
     def test_install_reapply_restore_preserves_other_preferences(self):
         oo.install('flatpak', True)
-        self.assertEqual(oo.theme_value(self.config.read_text()), oo.NAME)
+        self.assertEqual(oo.theme_value(self.config.read_text()), str(self.target.resolve()))
         latest = (self.root / 'state/latest').read_text()
         oo.install('flatpak', True)
         self.assertEqual((self.root / 'state/latest').read_text(), latest)

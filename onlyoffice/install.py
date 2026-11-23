@@ -86,7 +86,8 @@ def install(target, select):
     if path.is_symlink() or config.is_symlink():
         raise ValueError('Configuração vinculada; nenhum arquivo alterado.')
     text = config.read_text() if config.exists() else ''
-    updated = with_theme(text, NAME) if select else text
+    selection = str(path.resolve())
+    updated = with_theme(text, selection) if select else text
     if path.exists() and path.read_bytes() == source and updated == text:
         print('Tema já instalado; backup anterior preservado.')
         return
@@ -94,7 +95,7 @@ def install(target, select):
               'theme_before': base64.b64encode(path.read_bytes()).decode() if path.exists() else None,
               'theme_mode': path.stat().st_mode & 0o777 if path.exists() else 0o644,
               'theme_after': hashlib.sha256(source).hexdigest(), 'selected': select,
-              'selection_before': theme_value(text), 'selection_after': NAME, 'status': 'preparing'}
+              'selection_before': theme_value(text), 'selection_after': selection, 'status': 'preparing'}
     backup = state_dir() / 'backups' / (dt.datetime.now().strftime('%Y%m%d-%H%M%S') + '-' + uuid.uuid4().hex[:6]) / 'manifest.json'
     atomic(backup, json.dumps(record, indent=2).encode())
     try:
@@ -111,7 +112,8 @@ def install(target, select):
     atomic(backup, json.dumps(record, indent=2).encode())
     atomic(state_dir() / 'latest', str(backup).encode())
     print(f'Tema instalado: {path}\nBackup: {backup}')
-    print('Seleção gravada. Feche normalmente e reabra ONLYOFFICE para carregar o tema.' if select else 'Importe/selecione o JSON nas Configurações do ONLYOFFICE.')
+    print('Preferência nativa gravada pelo caminho absoluto; isso não comprova a aplicação das cores no editor.' if select else 'Tema copiado sem alterar a preferência nativa.')
+    print('No ONLYOFFICE: Configurações > Geral > Tema da interface. Selecione Claro e depois Tokyo Night Claro.')
     print('Nenhum documento foi fechado ou modificado. Associações de arquivos não são alteradas por este instalador.')
 
 
