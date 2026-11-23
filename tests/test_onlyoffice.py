@@ -69,6 +69,12 @@ class OnlyofficeTests(unittest.TestCase):
         def luminance(color):
             values = [int(color[i:i+2], 16) / 255 for i in (1, 3, 5)]
             return sum(w * (v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4) for w, v in zip((.2126, .7152, .0722), values))
-        for fg, bg in [('text-normal', 'background-normal'), ('text-secondary', 'background-normal'), ('text-inverse', 'background-primary-dialog-button'), ('text-toolbar-header', 'toolbar-header-document')]:
+        for fg, bg in [('text-normal', 'background-normal'), ('text-secondary', 'background-normal'), ('text-inverse', 'background-primary-dialog-button'), ('text-toolbar-header', 'toolbar-header-document'), ('text-pretty', 'brand-word')]:
             a, b = sorted([luminance(d['colors'][fg]), luminance(d['colors'][bg])])
             self.assertGreaterEqual((b + .05) / (a + .05), 4.5, (fg, bg))
+
+    def test_native_and_web_header_roles_agree(self):
+        colors = json.loads((oo.ROOT / oo.NAME).read_text())['colors']
+        for native, web in [('brand-word', 'toolbar-header-document'), ('brand-cell', 'toolbar-header-spreadsheet'), ('brand-slide', 'toolbar-header-presentation'), ('brand-pdf', 'toolbar-header-pdf'), ('brand-draw', 'toolbar-header-visio')]:
+            self.assertEqual(colors[native], colors[web], (native, web))
+        self.assertEqual(colors['text-pretty'], colors['text-toolbar-header'])
