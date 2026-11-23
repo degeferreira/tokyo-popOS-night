@@ -32,3 +32,5 @@ python3 theme.py restore
 ```
 
 [Advanced guide (Portuguese)](docs/advanced.md) · [Credits / Créditos](ATTRIBUTION.md) · [MIT](LICENSE)
+
+Optional: [Tokyo Night Day for ONLYOFFICE](onlyoffice/README.en.md), installed separately.

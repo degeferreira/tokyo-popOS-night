@@ -32,3 +32,5 @@ python3 theme.py restore
 ```
 
 [Opções, compatibilidade e backups](docs/advanced.md) · [Créditos](ATTRIBUTION.md) · [MIT](LICENSE)
+
+Opcional: [Tokyo Night Claro para ONLYOFFICE](onlyoffice/README.md), com instalação separada.
