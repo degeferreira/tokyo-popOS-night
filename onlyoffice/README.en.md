@@ -2,7 +2,7 @@
 
 [Português](README.md) · [Back to the COSMIC theme](../README.en.md)
 
-An optional writing interface: navy `#24283b` top strip, blue-gray `#d6d8df`/`#dadce3` tools, `#b7c1e3` selection and blue/purple accents. Document pages remain white. Fonts, document formatting and content stay unchanged.
+An optional writing interface: navy `#1a1b26` top strip, blue-gray `#d6d8df`/`#dadce3` tools, `#b7c1e3` selection and blue/purple accents. Document pages remain white. Fonts, document formatting and content stay unchanged.
 
 This add-on is **not** included in `theme.py apply`. It does not modify the system theme, terminal or default file associations.
 
@@ -20,7 +20,7 @@ Save your work and close ONLYOFFICE normally. From the repository root, without 
 python3 onlyoffice/install.py install
 ```
 
-Reopen ONLYOFFICE and go to **Settings → General → Interface theme**. Select **Light**, then **Tokyo Night Day**. This UI step applies the editor color layer; copying the JSON and writing the native preference are insufficient in some versions, including the tested 9.4 release. Flatpak profiles are detected first. Select a target explicitly if needed:
+Reopen ONLYOFFICE and go to **Settings → General → Interface theme**. Use **Add local theme**, choose this folder’s [tokyo-night-day.json](tokyo-night-day.json), then select **Tokyo Night Day**. When updating, reimport the file even if the theme is already listed. This UI step applies the editor color layer; copying the JSON and writing the native preference are insufficient in some versions, including the tested 9.4 release. Flatpak profiles are detected first. Select a target explicitly if needed:
 
 ```sh
 python3 onlyoffice/install.py install --target flatpak
@@ -65,3 +65,5 @@ Uses the [official theme format](https://api.onlyoffice.com/docs/desktop-editors
 Plugins, OS dialogs and future versions may use their own colors. Printed/exported document colors are not changed. Document transparency is not provided.
 
 The native `UITheme` selection stores the installed JSON’s absolute path, matching native import. A filename alone may leave the editor on its default theme. The web editor also caches its colors, so activating the theme through the UI is an explicit installation step. Do not delete the cache to apply the theme. If the option is missing, choose **Add local theme** and import the JSON from this repository folder.
+
+Native document tabs use a `#24283b` strip, a `#1a1b26` active tab and white titles in every state. When updating the JSON with documents open, use **Add local theme** to reimport this folder’s file. Selecting the already listed theme can reuse its previous in-memory definition. Reimporting updates it without closing documents.

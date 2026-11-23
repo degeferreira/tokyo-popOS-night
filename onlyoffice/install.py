@@ -113,7 +113,8 @@ def install(target, select):
     atomic(state_dir() / 'latest', str(backup).encode())
     print(f'Tema instalado: {path}\nBackup: {backup}')
     print('Preferência nativa gravada pelo caminho absoluto; isso não comprova a aplicação das cores no editor.' if select else 'Tema copiado sem alterar a preferência nativa.')
-    print('No ONLYOFFICE: Configurações > Geral > Tema da interface. Selecione Claro e depois Tokyo Night Claro.')
+    print('No ONLYOFFICE: Configurações > Geral > Tema da interface > Adicionar tema local.')
+    print(f'Reimporte {ROOT / "tokyo-night-day.json"} e selecione Tokyo Night Claro; selecionar a entrada antiga pode reutilizar cores em memória.')
     print('Nenhum documento foi fechado ou modificado. Associações de arquivos não são alteradas por este instalador.')
 
 

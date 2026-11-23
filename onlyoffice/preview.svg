@@ -3,9 +3,9 @@
 <desc>Faixa superior azul-marinho, ferramentas cinza-azuladas, detalhes azul e lilás, página branca. Ilustração, não captura do aplicativo.</desc>
 <rect width="1200" height="820" fill="#e6e7ed"/>
 <g font-family="sans-serif">
-<rect x="24" y="24" width="1152" height="58" rx="10" fill="#24283b"/>
-<rect x="24" y="62" width="1152" height="20" fill="#24283b"/>
-<text x="48" y="61" font-size="19" fill="#c0caf5">Tokyo Night Claro</text>
+<rect x="24" y="24" width="1152" height="58" rx="10" fill="#1a1b26"/>
+<rect x="24" y="62" width="1152" height="20" fill="#1a1b26"/>
+<text x="48" y="61" font-size="19" fill="#ffffff">Tokyo Night Claro</text>
 <text x="1135" y="59" text-anchor="end" font-size="14" fill="#bb9af7">ONLYOFFICE · interface</text>
 <rect x="24" y="82" width="1152" height="42" fill="#dadce3"/>
 <g font-size="15" fill="#343b59"><text x="48" y="109">Arquivo</text><text x="144" y="109" fill="#2959aa">Início</text><text x="233" y="109">Inserir</text><text x="325" y="109">Layout</text><text x="420" y="109">Referências</text><text x="560" y="109">Revisão</text><text x="665" y="109">Exibir</text></g>

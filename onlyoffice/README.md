@@ -2,7 +2,7 @@
 
 [English](README.en.md) · [Voltar ao tema COSMIC](../README.md)
 
-Um complemento opcional para escrever: faixa superior azul-marinho `#24283b`, ferramentas em cinza-azulado `#d6d8df`/`#dadce3`, seleção `#b7c1e3` e detalhes azuis e lilás. A página continua branca; o tema não muda fontes, estilos, cores ou conteúdo dos documentos.
+Um complemento opcional para escrever: faixa superior azul-marinho `#1a1b26`, ferramentas em cinza-azulado `#d6d8df`/`#dadce3`, seleção `#b7c1e3` e detalhes azuis e lilás. A página continua branca; o tema não muda fontes, estilos, cores ou conteúdo dos documentos.
 
 Não faz parte de `theme.py apply`. Não altera o tema do sistema, o terminal ou as associações de arquivos.
 
@@ -20,7 +20,7 @@ Salve seus documentos e feche normalmente o ONLYOFFICE antes de instalar. Na rai
 python3 onlyoffice/install.py install
 ```
 
-Abra novamente o ONLYOFFICE e vá a **Configurações → Geral → Tema da interface**. Selecione primeiro **Claro** e depois **Tokyo Night Claro / Tokyo Night Day**. Essa seleção pela interface é necessária para aplicar as cores na camada do editor; gravar a preferência nativa e copiar o JSON não bastam em algumas versões, incluindo a 9.4 testada. O instalador detecta o perfil Flatpak primeiro; para escolher explicitamente:
+Abra novamente o ONLYOFFICE e vá a **Configurações → Geral → Tema da interface**. Use **Adicionar tema local**, escolha [tokyo-night-day.json](tokyo-night-day.json) desta pasta e selecione **Tokyo Night Claro / Tokyo Night Day**. Ao atualizar, reimporte o arquivo mesmo que o tema já esteja listado. Essa seleção pela interface é necessária para aplicar as cores na camada do editor; gravar a preferência nativa e copiar o JSON não bastam em algumas versões, incluindo a 9.4 testada. O instalador detecta o perfil Flatpak primeiro; para escolher explicitamente:
 
 ```sh
 python3 onlyoffice/install.py install --target flatpak
@@ -66,3 +66,5 @@ Formato baseado na [documentação oficial de temas](https://api.onlyoffice.com/
 O tema cobre a interface nativa e os editores que respeitam os papéis oficiais de cores. Plugins, diálogos do sistema e futuras versões podem usar cores próprias. Não altera páginas impressas/exportadas, nem oferece transparência para documentos.
 
 A seleção nativa `UITheme` usa o caminho absoluto do JSON instalado, como faz a importação nativa. O nome do arquivo sozinho pode deixar o editor no tema padrão. Além disso, o editor web mantém seu próprio cache de cores: por isso a ativação pela interface é um passo explícito deste guia. Não apague o cache para tentar aplicar o tema. Se a opção não aparecer, use **Adicionar tema local** e importe o JSON desta pasta do repositório.
+
+As abas nativas usam faixa `#24283b`, aba ativa `#1a1b26` e títulos brancos em todos os estados. Ao atualizar o JSON com documentos abertos, use **Adicionar tema local** para reimportar o arquivo desta pasta; apenas selecionar o tema já listado pode reutilizar a definição anterior em memória. Isso permite atualizar sem fechar documentos.

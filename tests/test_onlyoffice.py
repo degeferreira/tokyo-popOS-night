@@ -78,3 +78,14 @@ class OnlyofficeTests(unittest.TestCase):
         for native, web in [('brand-word', 'toolbar-header-document'), ('brand-cell', 'toolbar-header-spreadsheet'), ('brand-slide', 'toolbar-header-presentation'), ('brand-pdf', 'toolbar-header-pdf'), ('brand-draw', 'toolbar-header-visio')]:
             self.assertEqual(colors[native], colors[web], (native, web))
         self.assertEqual(colors['text-pretty'], colors['text-toolbar-header'])
+
+    def test_document_tab_labels_contrast_inactive_hover_and_active(self):
+        c = json.loads((oo.ROOT / oo.NAME).read_text())['colors']
+        def lum(h):
+            v = [int(h[i:i+2], 16) / 255 for i in (1, 3, 5)]
+            return sum(w * (x / 12.92 if x <= .04045 else ((x + .055) / 1.055) ** 2.4) for w, x in zip((.2126, .7152, .0722), v))
+        # CTabBar 9.4 uses this text role for inactive tabs as well as light active tabs.
+        for fg, bg in [('tab-simple-active-text', 'window-background'), ('tab-simple-active-text', 'tool-button-hover-background'), ('text-inverse', 'brand-word'), ('tab-simple-active-text', 'tab-simple-active-background')]:
+            a,b = sorted((lum(c[fg]),lum(c[bg])))
+            self.assertGreaterEqual((b+.05)/(a+.05),7,(fg,bg))
+        self.assertEqual(c['tab-editor-theme-type'],'dark')
