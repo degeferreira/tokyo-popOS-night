@@ -2,9 +2,13 @@
 
 [Português](README.md) · [Back to the COSMIC theme](../README.en.md)
 
-An optional light interface with blue/lavender surfaces, slate text, deep blue buttons and purple accents. Document pages remain white. Fonts, document formatting and content stay unchanged.
+An optional writing interface: navy `#24283b` top strip, blue-gray `#d6d8df`/`#dadce3` tools, `#b7c1e3` selection and blue/purple accents. Document pages remain white. Fonts, document formatting and content stay unchanged.
 
 This add-on is **not** included in `theme.py apply`. It does not modify the system theme, terminal or default file associations.
+
+![Illustrative palette preview; not an application screenshot](preview.svg)
+
+The dark frame adds Night/Storm identity while the interface body remains light and the page stays `#ffffff`. This preview illustrates the palette; actual control positions depend on ONLYOFFICE.
 
 ## Install
 
@@ -56,6 +60,6 @@ Native packages require their installed `.desktop` identifier. This step is inde
 
 ## Sources and scope
 
-Uses the [official theme format](https://api.onlyoffice.com/docs/desktop-editors/usage-api/customizing-themes/), [local theme import](https://helpcenter.onlyoffice.com/desktop/getting-started), and native [CThemes loader](https://github.com/ONLYOFFICE/desktop-apps/blob/master/win-linux/src/cthemes.cpp). Original palette inspired by [Tokyo Night Day](https://github.com/folke/tokyonight.nvim); no upstream source code is bundled. The repository's MIT license applies to this add-on; ONLYOFFICE retains its own license and trademarks.
+Uses the [official theme format](https://api.onlyoffice.com/docs/desktop-editors/usage-api/customizing-themes/), [local theme import](https://helpcenter.onlyoffice.com/desktop/getting-started), and native [CThemes loader](https://github.com/ONLYOFFICE/desktop-apps/blob/master/win-linux/src/cthemes.cpp). Adapted from [original Tokyo Night Light](https://github.com/tokyo-night/tokyo-night-vscode-theme/blob/master/themes/tokyo-night-light-color-theme.json) and [Tokyo Night Day](https://github.com/folke/tokyonight.nvim), with a Night/Storm top strip. This is an adaptation, not an official variant or exact copy; no upstream source code is bundled. The repository's MIT license applies to this add-on; ONLYOFFICE retains its own license and trademarks.
 
 Plugins, OS dialogs and future versions may use their own colors. Printed/exported document colors are not changed. Document transparency is not provided.

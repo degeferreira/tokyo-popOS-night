@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+<title>Tokyo Night Claro — prévia ilustrativa da paleta</title>
+<desc>Faixa superior azul-marinho, ferramentas cinza-azuladas, detalhes azul e lilás, página branca. Ilustração, não captura do aplicativo.</desc>
+<rect width="1200" height="820" fill="#e6e7ed"/>
+<g font-family="sans-serif">
+<rect x="24" y="24" width="1152" height="58" rx="10" fill="#24283b"/>
+<rect x="24" y="62" width="1152" height="20" fill="#24283b"/>
+<text x="48" y="61" font-size="19" fill="#c0caf5">Tokyo Night Claro</text>
+<text x="1135" y="59" text-anchor="end" font-size="14" fill="#bb9af7">ONLYOFFICE · interface</text>
+<rect x="24" y="82" width="1152" height="42" fill="#dadce3"/>
+<g font-size="15" fill="#343b59"><text x="48" y="109">Arquivo</text><text x="144" y="109" fill="#2959aa">Início</text><text x="233" y="109">Inserir</text><text x="325" y="109">Layout</text><text x="420" y="109">Referências</text><text x="560" y="109">Revisão</text><text x="665" y="109">Exibir</text></g>
+<rect x="138" y="119" width="53" height="3" fill="#bb9af7"/>
+<rect x="24" y="124" width="1152" height="72" fill="#d6d8df"/>
+<g font-size="14" fill="#343b59"><rect x="45" y="140" width="160" height="34" rx="4" fill="#e6e7ed" stroke="#a1a6c5"/><text x="57" y="162">Fonte do documento</text><rect x="220" y="140" width="52" height="34" rx="4" fill="#e6e7ed" stroke="#a1a6c5"/><text x="234" y="162">12</text><text x="307" y="163" font-weight="bold">N</text><text x="354" y="163" font-style="italic">I</text><text x="397" y="163" text-decoration="underline">S</text><rect x="453" y="140" width="53" height="34" rx="4" fill="#b7c1e3"/><text x="470" y="162">≡</text></g>
+<rect x="24" y="196" width="1152" height="558" fill="#c4c9d6"/>
+<rect x="24" y="196" width="175" height="558" fill="#d0d3dd"/>
+<text x="42" y="231" font-size="14" fill="#4c5680">NAVEGAÇÃO</text>
+<rect x="34" y="252" width="155" height="36" rx="4" fill="#b7c1e3"/><text x="48" y="275" font-size="14" fill="#343b59">Introdução</text>
+<text x="48" y="316" font-size="14" fill="#4c5680">Ideias principais</text><text x="48" y="355" font-size="14" fill="#4c5680">Próximos passos</text>
+<rect x="355" y="220" width="635" height="536" rx="1" fill="#adb3c4"/><rect x="350" y="215" width="635" height="539" fill="#ffffff"/>
+<g font-family="serif" fill="#242424"><text x="413" y="300" font-size="29">Espaço para escrever</text><text x="413" y="352" font-size="18">Uma interface tranquila, com identidade.</text><text x="413" y="386" font-size="18">O azul-marinho fica na moldura. Cinzas azulados</text><text x="413" y="414" font-size="18">organizam as ferramentas e dão contraste à página.</text><text x="413" y="470" font-size="18">A folha continua branca, e as cores e os estilos</text><text x="413" y="498" font-size="18">do seu documento permanecem como você escolheu.</text></g>
+<rect x="24" y="754" width="1152" height="28" fill="#dadce3"/><text x="42" y="773" font-size="12" fill="#4c5680">Página branca · Interface adaptada de Tokyo Night Light / Day</text>
+<text x="600" y="806" text-anchor="middle" font-size="13" fill="#4c5680">Prévia ilustrativa da paleta — não é captura do ONLYOFFICE.</text>
+</g></svg>

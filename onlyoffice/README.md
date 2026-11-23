@@ -2,9 +2,13 @@
 
 [English](README.en.md) · [Voltar ao tema COSMIC](../README.md)
 
-Um complemento opcional: superfícies claras em azul e lavanda, texto azul-acinzentado, azul profundo nos botões e lilás nos destaques. A página continua branca; o tema não muda fontes, estilos, cores ou conteúdo dos documentos.
+Um complemento opcional para escrever: faixa superior azul-marinho `#24283b`, ferramentas em cinza-azulado `#d6d8df`/`#dadce3`, seleção `#b7c1e3` e detalhes azuis e lilás. A página continua branca; o tema não muda fontes, estilos, cores ou conteúdo dos documentos.
 
 Não faz parte de `theme.py apply`. Não altera o tema do sistema, o terminal ou as associações de arquivos.
+
+![Prévia ilustrativa da interface; não é captura do aplicativo](preview.svg)
+
+A moldura escura traz a identidade Night/Storm; o corpo da interface fica claro, sem o branco dominante da versão anterior. A página é sempre `#ffffff`. A prévia acima ilustra a paleta; o posicionamento real dos controles depende do ONLYOFFICE.
 
 ## Instalar
 
@@ -57,6 +61,6 @@ Para pacote nativo, use o identificador `.desktop` instalado pela sua distribui�
 
 ## Referências e limites
 
-Formato baseado na [documentação oficial de temas](https://api.onlyoffice.com/docs/desktop-editors/usage-api/customizing-themes/) e no carregador nativo [CThemes](https://github.com/ONLYOFFICE/desktop-apps/blob/master/win-linux/src/cthemes.cpp). A [importação local](https://helpcenter.onlyoffice.com/desktop/getting-started) é oferecida pelo próprio aplicativo. Paleta própria inspirada no [Tokyo Night Day](https://github.com/folke/tokyonight.nvim), sem copiar o código dos projetos. Mantém a licença MIT do repositório; ONLYOFFICE conserva seus próprios termos e marcas.
+Formato baseado na [documentação oficial de temas](https://api.onlyoffice.com/docs/desktop-editors/usage-api/customizing-themes/) e no carregador nativo [CThemes](https://github.com/ONLYOFFICE/desktop-apps/blob/master/win-linux/src/cthemes.cpp). A [importação local](https://helpcenter.onlyoffice.com/desktop/getting-started) é oferecida pelo próprio aplicativo. Adaptação das cores de [Tokyo Night Light original](https://github.com/tokyo-night/tokyo-night-vscode-theme/blob/master/themes/tokyo-night-light-color-theme.json) e [Tokyo Night Day](https://github.com/folke/tokyonight.nvim), com a faixa superior do Night/Storm. Não é uma variante oficial nem uma cópia exata; não redistribui o código desses projetos. Mantém a licença MIT do repositório; ONLYOFFICE conserva seus próprios termos e marcas.
 
 O tema cobre a interface nativa e os editores que respeitam os papéis oficiais de cores. Plugins, diálogos do sistema e futuras versões podem usar cores próprias. Não altera páginas impressas/exportadas, nem oferece transparência para documentos.
